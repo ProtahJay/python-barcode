@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Selected Scanners</h1>
+  <ul>
+    {% for scanner in scanners %}
+      <li>
+        <a href="{{ url_for('display_scanner_data', scanner_id=scanner.id) }}">{{ scanner.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <br>
+  <a href="{{ url_for('index') }}">Go back to select scanners.</a>
+{% endblock %}

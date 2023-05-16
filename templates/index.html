@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Select Scanners</title>
+</head>
+<body>
+  <h1>Select Scanners</h1>
+  <form action="{{ url_for('selected_scanners') }}" method="post">
+    {% for barcode_scanner in barcode_scanners %}
+      <div>
+        <input type="checkbox" name="scanners" value="{{ barcode_scanner.id }}" id="scanner{{barcode_scanner.id}}">
+        <label for="scanner{{barcode_scanner.id}}">{{ barcode_scanner.name }}</label>
+      </div>
+    {% endfor %}
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
